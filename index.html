@@ -118,6 +118,9 @@ body{font-family:Nunito,system-ui,sans-serif;background:linear-gradient(160deg,v
 .ya{animation:ya .5s 3s}@keyframes ya{40%{transform:scale(1.22)}}
 .rg{position:absolute;border-radius:50%;border:3px solid var(--pink);animation:rg 1.5s infinite}
 @keyframes rg{from{transform:scale(.6);opacity:1}to{transform:scale(2);opacity:0}}
+#start{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));font-weight:900;font-size:20px;color:var(--ink);cursor:pointer;transition:opacity .5s}
+#start.off{opacity:0;pointer-events:none}
+#start .hrt{font-size:84px}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
 </style>
 </head>
@@ -130,6 +133,7 @@ body{font-family:Nunito,system-ui,sans-serif;background:linear-gradient(160deg,v
   <div id="seek"><i></i></div>
   <audio id="au" src="music.mp3" loop preload="auto"></audio>
 </main>
+<div id="start"><div class="hrt">♥</div>Нажми, чтобы начать</div>
 <script>
 var K=1.5;
 var HD=function(c,e,t,s){return '<div class="hd"><div class="ic" style="background:'+c+'">'+e+'</div><div><b>'+t+'</b><span>'+s+'</span></div></div>'};
@@ -174,13 +178,16 @@ function show(k){i=k;T.forEach(clearTimeout);T=[];
  if(i==9){hearts();later(hearts,2400)}}
 var au=document.getElementById('au'),playing=false,t0=performance.now();
 function clock(){return playing&&!au.paused?au.currentTime:((performance.now()-t0)/1000)%TOTAL}
-function tick(){var c=clock(),k=-1;
+var begun=false,ov=document.getElementById('start');
+function begin(){begun=true;ov.classList.add('off');setTimeout(function(){ov.style.display='none'},600)}
+function tick(){if(!begun){requestAnimationFrame(tick);return}
+ var c=clock(),k=-1;
  for(var j=0;j<STARTS.length;j++)if(c>=STARTS[j])k=j;
  if(k!==i)show(k);
  document.querySelector('#seek i').style.width=(Math.min(1,c/TOTAL)*100)+'%';requestAnimationFrame(tick)}
-function go(){if(playing)return;playing=true;i=-2;au.currentTime=0;au.play().catch(function(){playing=false;t0=performance.now()})}
-au.play().then(function(){playing=true;i=-2}).catch(function(){});
-document.addEventListener('pointerdown',go,{once:true});
+function go(){if(begun)return;begin();playing=true;i=-2;t0=performance.now();au.currentTime=0;au.play().catch(function(){playing=false;t0=performance.now()})}
+ov.addEventListener('click',go);ov.addEventListener('touchend',function(e){e.preventDefault();go()});
+au.play().then(function(){if(begun)return;begin();playing=true;i=-2;au.currentTime=0}).catch(function(){});
 sparkle();show(-1);requestAnimationFrame(tick);
 </script>
 </body>
