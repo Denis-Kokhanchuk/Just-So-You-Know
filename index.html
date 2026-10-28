@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Люблю</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#f9d3ea;--bg2:#d9cdfa;--bg3:#cfe0ff;--card:#fff;--ink:#1d1b33;--sub:#7b5cd6;--pink:#ff3d71;--blue:#6fb4ff;--mute:#a9a6c4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a2347;--bg2:#2a2650;--bg3:#1f2d52;--card:#2b2842;--ink:#f4f1ff;--sub:#b9a4ff;--mute:#7f7ca3}}
+:root[data-theme="dark"]{--bg1:#3a2347;--bg2:#2a2650;--bg3:#1f2d52;--card:#2b2842;--ink:#f4f1ff;--sub:#b9a4ff;--mute:#7f7ca3}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:Nunito,system-ui,sans-serif;background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));color:var(--ink);overflow:hidden;user-select:none}
+#app{height:100%;display:flex;flex-direction:column;align-items:center;padding:18px 18px 14px;max-width:520px;margin:auto;position:relative}
+@media (min-width:600px){body{display:grid;place-items:center}#app{width:420px;height:min(100%,860px);border-radius:38px;background:rgba(255,255,255,.28);box-shadow:0 30px 80px rgba(100,70,180,.3);padding:26px 22px 18px}}
+.pill{align-self:stretch;background:#111;color:#fff;border-radius:30px;padding:7px 14px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:800}
+.pill small{display:block;font-weight:600;opacity:.6;font-size:11px}
+.pill i{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--pink),var(--blue))}
+.bars{margin-left:auto;display:flex;gap:2px;align-items:center;height:16px}
+.bars b{width:3px;background:#d86bff;border-radius:2px;height:5px;animation:eq .6s infinite alternate}
+.bars b:nth-child(2){animation-delay:.15s}.bars b:nth-child(3){animation-delay:.3s}.bars b:nth-child(4){animation-delay:.1s}
+@keyframes eq{to{height:16px}}
+#stage{flex:1;width:100%;display:flex;align-items:center;position:relative}
+.card{width:100%;background:var(--card);border-radius:26px;padding:18px;box-shadow:0 14px 40px rgba(120,90,200,.22);min-height:310px;position:relative;overflow:hidden;animation:in .6s cubic-bezier(.2,.9,.3,1.2)}
+.card.clear{background:none;box-shadow:none;overflow:visible}
+@keyframes in{from{transform:scale(.86) translateY(20px);opacity:0}}
+.hd{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:18px;color:#fff;flex:none}
+.hd b{font-size:17px;display:block}.hd span{font-size:12px;color:var(--sub);font-weight:800}
+.row{display:flex;justify-content:center;align-items:center;margin:8px 0;gap:6px}
+.dot{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:900;color:#fff;flex:none}
+.me{background:var(--blue)}.you{background:#ff6fa0}
+.big{font-size:44px;font-weight:900;text-align:center;color:var(--pink)}
+.mid{text-align:center;font-size:15px;font-weight:800;color:var(--sub)}
+.bar{height:6px;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--pink));margin:10px 0 8px;transform-origin:left;animation:bar 2.4s both ease-out}
+@keyframes bar{from{transform:scaleX(.68)}}
+.pop{animation:pop2 .55s var(--d,0s) both cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop2{from{transform:scale(0) rotate(-12deg);opacity:0}}
+.slam{animation:slam .45s var(--d,0s) both cubic-bezier(.3,1.4,.5,1)}
+@keyframes slam{from{transform:scale(3) rotate(-14deg);opacity:0}}
+@keyframes fromL{from{transform:translateX(-110px) scale(.7);opacity:0}}
+@keyframes fromR{from{transform:translateX(110px) scale(.7);opacity:0}}
+.hrt{font-size:38px;color:var(--pink);animation:beat .8s infinite}
+@keyframes beat{40%{transform:scale(1.35)}}
+.sticker{position:absolute;left:14px;top:96px;background:#fcd34d;color:#4a3300;font-weight:900;font-size:14px;padding:4px 10px;border-radius:8px;transform:rotate(-8deg);z-index:2}
+.sw{width:52px;height:30px;border-radius:15px;background:#cfcbe3;position:relative;animation:swon .3s 3s forwards}
+.sw i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.25);animation:kn .3s 3s forwards}
+@keyframes swon{to{background:#22c55e}}@keyframes kn{to{transform:translateX(22px)}}
+.btns{display:flex;gap:10px;margin-top:20px}.btns div{flex:1;text-align:center;padding:15px;border-radius:14px;background:rgba(120,100,200,.12);font-weight:900;font-size:18px}
+.btns .no{animation:bye 1s 1.8s forwards ease-in}
+@keyframes bye{25%{background:#c9c9d3;color:#fff;transform:scale(.95)}100%{background:#c9c9d3;color:#fff;transform:translate(-60px,-170px) rotate(-40deg) scale(.4);opacity:0}}
+.btns .yes{animation:yes .6s 1.8s forwards}
+@keyframes yes{40%{transform:scale(.9)}100%{background:var(--pink);color:#fff;transform:scale(1.04);box-shadow:0 8px 20px rgba(255,61,113,.5)}}
+.stamp{position:absolute;right:14px;bottom:20px;font-size:28px;font-weight:900;color:var(--pink);border:4px solid var(--pink);border-radius:12px;padding:2px 12px;transform:rotate(-10deg);--d:3s}
+.tk{display:flex;justify-content:space-between;font-size:38px;font-weight:900;margin:16px 0 0}
+.tk span:first-child{color:var(--sub);animation:fromL .6s both}.tk span:last-child{color:var(--mute);animation:fromR .6s both,sea .5s 4.2s forwards}
+@keyframes sea{to{color:#14b8a6;transform:scale(1.15)}}
+.sky{position:relative;width:280px;height:110px;margin:0 auto}
+.sky svg{position:absolute;inset:0}
+.trail{stroke-dasharray:1;stroke-dashoffset:1;animation:dr 3.6s .6s forwards ease-in-out}
+@keyframes dr{to{stroke-dashoffset:0}}
+.plane{position:absolute;left:0;top:0;width:28px;height:22px;offset-path:path("M10 95 Q140 -25 270 75");offset-rotate:auto;offset-distance:0;animation:fl 3.6s .6s forwards ease-in-out}
+@keyframes fl{to{offset-distance:100%}}
+.pair{position:relative;height:130px;margin-top:4px}
+.ground{position:absolute;left:10px;right:10px;bottom:30px;height:3px;background:var(--mute);border-radius:2px;opacity:.5}
+.boot{position:absolute;bottom:34px;width:46px;height:56px;transform-origin:50% 100%}
+.b1{left:calc(50% - 41px);animation:j1 1.2s both cubic-bezier(.3,1.2,.5,1),hug 1.2s 1.2s infinite alternate ease-in-out}
+.b2{left:calc(50% - 5px);z-index:1;animation:j2 1.2s both cubic-bezier(.3,1.2,.5,1),hug2 1.2s 1.2s infinite alternate ease-in-out}
+@keyframes j1{from{transform:translateX(-95px) rotate(-14deg);opacity:0}to{transform:rotate(8deg)}}
+@keyframes j2{from{transform:translateX(95px) rotate(14deg);opacity:0}to{transform:rotate(-8deg)}}
+@keyframes hug{from{transform:rotate(8deg)}to{transform:rotate(14deg) scale(1.05)}}
+@keyframes hug2{from{transform:rotate(-8deg)}to{transform:rotate(-14deg) scale(1.05)}}
+.arm{transform-box:fill-box;transform-origin:0 50%;animation:arm .4s 1.2s both}
+@keyframes arm{from{transform:scaleX(0)}}
+.lbl{position:absolute;bottom:6px;font-weight:800;color:var(--sub);font-size:14px}
+.camp{position:relative;height:150px;margin-top:6px}
+.glow{position:absolute;left:50%;bottom:10px;width:180px;height:180px;margin-left:-90px;border-radius:50%;background:radial-gradient(#ffb34755,transparent 65%);animation:gl 3s .6s both}
+@keyframes gl{from{transform:scale(.4);opacity:.3}}
+.fire{position:absolute;left:50%;bottom:20px;width:54px;height:72px;margin-left:-27px;transform-origin:50% 100%;animation:fk .35s infinite alternate ease-in-out}
+@keyframes fk{to{transform:scale(1.07,.94) skewX(3deg)}}
+.log{position:absolute;left:50%;bottom:16px;width:64px;height:9px;margin-left:-32px;background:#7c4a24;border-radius:5px}
+.log+.log{transform:rotate(-14deg)}
+.av{position:absolute;bottom:18px;width:46px;height:46px;font-size:20px}
+.av.l{left:6px;animation:ap 3s .6s both ease-in-out}.av.r{right:6px;animation:ap2 3s .6s both ease-in-out}
+@keyframes ap{to{left:calc(50% - 82px)}}@keyframes ap2{to{right:calc(50% - 82px)}}
+.sp{position:absolute;bottom:80px;left:50%;width:4px;height:4px;border-radius:50%;background:#fbbf24;animation:spk 1.4s infinite}
+@keyframes spk{from{transform:translate(0,0);opacity:1}to{transform:translate(var(--x,10px),-70px);opacity:0}}
+.night{border-radius:16px;overflow:hidden;position:relative;height:215px}
+.night svg{display:block;width:100%;height:100%}
+.nw{animation:nw 4.8s linear infinite}
+@keyframes nw{from{transform:translateX(-125px)}to{transform:translateX(75px)}}
+.lg{transform-box:fill-box;transform-origin:50% 0}
+.lg.a{animation:lg .5s infinite alternate ease-in-out}.lg.b{animation:lg .5s infinite alternate-reverse ease-in-out}
+@keyframes lg{from{transform:rotate(-24deg)}to{transform:rotate(24deg)}}
+.gl2{animation:tw 1.6s infinite}
+@keyframes tw{0%,100%{opacity:0}50%{opacity:.95}}
+.streak{animation:str 2s infinite alternate}@keyframes str{to{opacity:.55}}
+.st{transform-box:fill-box;transform-origin:center;opacity:0;animation:stw 2.4s infinite}
+@keyframes stw{0%{transform:scale(0) rotate(0);opacity:0}25%{transform:scale(1) rotate(45deg);opacity:1}60%{transform:scale(.7) rotate(90deg);opacity:.9}100%{transform:scale(0) rotate(135deg);opacity:0}}
+.temp{position:absolute;top:8px;right:12px;font-size:12px;color:#fff;font-weight:800}
+.ring{position:relative;width:150px;height:150px;margin:0 auto 14px;display:grid;place-items:center}
+.ring:before{content:"";position:absolute;inset:0;border-radius:50%;border:4px dashed var(--pink);animation:sp2 16s linear infinite}
+@keyframes sp2{to{transform:rotate(360deg)}}
+.fin{text-align:center;width:100%}
+.fin h1{font-size:60px;font-weight:900;display:flex;justify-content:center}
+.fin h1 span{display:inline-block;background:linear-gradient(90deg,#ff6fa0,#9b7bff);-webkit-background-clip:text;background-clip:text;color:transparent;animation:pop2 .6s both cubic-bezier(.2,1.6,.4,1)}
+.fin p{color:var(--sub);font-weight:800;margin-top:6px;animation:in .6s 2.4s both}
+.ring+h1{margin-top:4px}
+.h{position:fixed;pointer-events:none;font-size:20px;animation:up 1.8s forwards;z-index:5;color:#ff3d71}
+@keyframes up{to{transform:translateY(-170px) scale(1.4) rotate(20deg);opacity:0}}
+.ci{position:absolute;pointer-events:none;color:#fff;opacity:.7;animation:tw 3s infinite;font-size:14px}
+#dots{display:flex;gap:6px;margin:10px 0}#dots i{width:6px;height:6px;border-radius:3px;background:var(--mute);transition:.3s}#dots i.a{width:22px;background:var(--ink)}
+.title{font-size:20px;font-weight:900}
+#seek{width:100%;height:4px;border-radius:3px;background:rgba(120,100,200,.25);margin:10px 0 4px;overflow:hidden}#seek i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d86bff,var(--pink))}
+.hf{position:absolute;left:0;top:0;margin-left:-18px;animation:hx 2.4s .6s both linear}@keyframes hx{from{left:0}to{left:100%}}
+.hy{font-size:36px;line-height:1;color:var(--pink);animation:hy 2.4s .6s both ease-out}@keyframes hy{0%{transform:translateY(0) scale(.6)}50%{transform:translateY(-46px) scale(1.4)}90%{transform:translateY(0) scale(1)}100%{transform:translateY(0) scale(0)}}
+.ya{animation:ya .5s 3s}@keyframes ya{40%{transform:scale(1.22)}}
+.rg{position:absolute;border-radius:50%;border:3px solid var(--pink);animation:rg 1.5s infinite}
+@keyframes rg{from{transform:scale(.6);opacity:1}to{transform:scale(2);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
+</style>
+</head>
+<body>
+<main id="app">
+  <div class="pill"><i></i><div>Романс<small>Пицца</small></div><div class="bars"><b></b><b></b><b></b><b></b></div></div>
+  <div id="stage"></div>
+  <div id="dots"></div>
+  <div class="title">Пицца — Романс</div>
+  <div id="seek"><i></i></div>
+  <audio id="au" src="music.mp3" loop preload="auto"></audio>
+</main>
+<script>
+var K=1.5;
+var HD=function(c,e,t,s){return '<div class="hd"><div class="ic" style="background:'+c+'">'+e+'</div><div><b>'+t+'</b><span>'+s+'</span></div></div>'};
+var BOOT=function(c,f){return '<svg viewBox="0 0 40 50" style="width:100%;height:100%;overflow:visible;'+(f?'transform:scaleX(-1)':'')+'"><path class="arm" d="M22 18Q50 12 52 28" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/><path d="M8 2h17v25l11 7c3 2 3 9-2 9H6c-3 0-4-2-4-5V8c0-3 3-6 6-6z" fill="'+c+'"/><rect x="2" y="39" width="36" height="5" rx="2" fill="#6b3a12"/></svg>'};
+var FLAME='<svg viewBox="0 0 60 80" width="100%" height="100%"><path d="M30 2C36 22 55 34 51 57 49 71 39 77 30 77S11 71 9 57C5 36 24 26 30 2z" fill="#f97316"/><path d="M30 28C35 41 45 47 43 60 42 69 36 73 30 73S18 69 17 60C15 47 25 41 30 28z" fill="#fde047"/></svg>';
+var S=[
+function(){return HD('var(--pink)','♥','Знакомства','Нам повезло, мы это знаем оба!')+'<div class="sticker pop" style="--d:1.2s">Повезло!</div><div class="row" style="margin-top:34px"><div class="dot me" style="animation:fromL 1.2s both cubic-bezier(.2,.8,.3,1)">Я</div><div class="hrt">♥</div><div class="dot you" style="animation:fromR 1.2s both cubic-bezier(.2,.8,.3,1)">Ты</div></div><div class="mid" style="margin-top:12px">совпадение <b id="n" style="color:var(--pink)">68</b>%</div><div class="bar"></div><div class="big slam" style="--d:2.4s">Это мэтч!</div>'},
+function(){return HD('#8b6cf6','★','Подписки','Сдаётся мне, это — любовь до гроба!')+'<div class="hd pop" style="--d:.2s"><div class="ic" style="background:var(--pink)">♥</div><div><b>Любовь</b><span>тариф «Мы вдвоём»</span></div><b id="n" style="margin-left:auto;font-size:28px;color:var(--sub)">4372</b></div><div class="mid pop" style="text-align:left;margin:8px 0;--d:.5s">действует до 31.12.2026</div><div class="big slam" style="font-size:38px;color:var(--ink);--d:1.8s">∞ до гроба</div><div class="hd pop" style="margin:18px 0 0;--d:1.2s"><b style="font-size:15px">Автопродление</b><div class="sw" style="margin-left:auto"><i></i></div></div>'},
+function(){return HD('var(--pink)','♥','ЗАГС','Подтверждение действия')+'<div class="big pop" style="color:var(--ink);font-size:30px;margin:30px 0 10px">Согласны ли вы?</div><div class="btns"><div class="no">Нет</div><div class="yes">Да</div></div><div class="stamp slam">Ещё бы!</div>'},
+function(){return HD('#4f8ef7','✋','Передача','Вот эта рука твоя! Вот тебе сердце, не теряй!')+'<div style="position:relative;height:110px;margin-top:14px"><div class="dot me" style="position:absolute;left:6px;top:14px">Я</div><div class="dot you ya" style="position:absolute;right:6px;top:14px">Ты</div><div class="rg" style="right:6px;top:14px;width:76px;height:76px;animation-delay:3s"></div><div class="rg" style="right:6px;top:14px;width:76px;height:76px;animation-delay:3.5s"></div><div style="position:absolute;left:44px;right:44px;top:34px;height:0"><div class="hf"><div class="hy">♥</div></div></div></div><div class="mid">сердце отправлено <b id="n" style="color:var(--pink)">1</b>%</div><div class="big slam" style="font-size:36px;--d:3s;margin-top:6px">Не теряй!</div>'},
+function(){return HD('#14b8a6','✈','Билеты','Январь — море, а там — сваляем на море!')+'<div class="tk"><span>ЯНВ</span><span>МОРЕ</span></div><div class="sky"><svg viewBox="0 0 280 110"><path d="M10 95 Q140 -25 270 75" fill="none" stroke="var(--mute)" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"/><path class="trail" pathLength="1" d="M10 95 Q140 -25 270 75" fill="none" stroke="#14b8a6" stroke-width="3" stroke-linecap="round"/></svg><div class="plane"><svg viewBox="-14 -11 28 22"><path d="M13 0L-9 -9-4 0-9 9z" fill="#14b8a6"/></svg></div></div><div class="mid pop" style="--d:.8s">2 пассажира · Ты и Я</div>'},
+function(){return HD('#f59e0b','🥾','Пара','Ты и я — «Два сапога — пара»')+'<div class="pair"><div class="ground"></div><div class="boot b1">'+BOOT('#f59e0b',0)+'</div><div class="boot b2">'+BOOT('#ef4444',1)+'</div><span class="lbl" style="left:calc(50% - 44px)">Ты</span><span class="lbl" style="left:calc(50% + 24px)">Я</span></div><div class="big slam" style="color:#f59e0b;font-size:32px;--d:2.4s;margin-top:6px">Два сапога — пара</div>'},
+function(){return HD('#22c55e','✓','Детектор лжи','Вроде не врут — вот это самое!')+'<div style="position:relative;margin-top:14px"><div style="width:210px;height:105px;margin:0 auto;border-radius:210px 210px 0 0;background:conic-gradient(from 270deg at 50% 100%,#ef4444,#facc15,#22c55e 180deg,transparent 180deg);position:relative"><div style="position:absolute;left:50%;bottom:0;width:4px;height:90px;margin-left:-2px;background:var(--ink);border-radius:3px;transform-origin:bottom;animation:nd 2.4s .6s forwards cubic-bezier(.3,1.3,.5,1)"></div><div style="position:absolute;left:50%;bottom:-8px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--ink)"></div></div></div><div class="big slam" style="color:#22c55e;font-size:34px;--d:3s;margin-top:18px">ПРАВДА</div><div class="mid">ложь: <b id="n">72</b>%</div><style>@keyframes nd{from{transform:rotate(-80deg)}30%{transform:rotate(55deg)}45%{transform:rotate(-30deg)}60%{transform:rotate(35deg)}80%{transform:rotate(66deg)}to{transform:rotate(72deg)}}</style>'},
+function(){var sp='';for(var k=0;k<7;k++)sp+='<i class="sp" style="--x:'+(k*8-24)+'px;animation-delay:'+(k*.2)+'s"></i>';return HD('#f97316','🔥','Рядом','Ты ближе быть ночью к костру?')+'<div class="camp"><div class="glow"></div><div class="log"></div><div class="log" style="transform:rotate(14deg)"></div><div class="fire">'+FLAME+'</div>'+sp+'<div class="dot me av l">Я</div><div class="dot you av r">Ты</div></div><div class="big" style="color:#f97316;font-size:36px"><span id="n">10</span> м</div><div class="mid">ближе — теплее</div>'},
+function(){var g='';for(var k=0;k<28;k++)g+='<g transform="translate('+(10+Math.random()*280|0)+','+(148+Math.random()*56|0)+') scale('+(.6+Math.random()*1.1).toFixed(2)+')"><path class="st" d="M0-7Q.8-.8 7 0Q.8.8 0 7Q-.8.8-7 0Q-.8-.8 0-7z" fill="#fff6c8" style="animation-delay:'+(Math.floor(Math.random()*8)*.3).toFixed(1)+'s"/></g>';
+ var P='<g id="pp"><circle cx="150" cy="76" r="8"/><rect x="142" y="86" width="16" height="34" rx="7"/><line class="lg a" x1="146" y1="118" x2="146" y2="140" stroke="#05050c" stroke-width="5" stroke-linecap="round"/><line class="lg b" x1="154" y1="118" x2="154" y2="140" stroke="#05050c" stroke-width="5" stroke-linecap="round"/><circle cx="178" cy="83" r="7"/><rect x="171" y="91" width="14" height="30" rx="6"/><line class="lg b" x1="175" y1="120" x2="175" y2="140" stroke="#05050c" stroke-width="4.5" stroke-linecap="round"/><line class="lg a" x1="182" y1="120" x2="182" y2="140" stroke="#05050c" stroke-width="4.5" stroke-linecap="round"/><path d="M156 92L165 107M174 98L165 107" stroke="#05050c" stroke-width="4" stroke-linecap="round" fill="none"/><text x="159" y="98" font-size="14" fill="#ff3d71" stroke="none">♥</text></g>';
+ return HD('#8b6cf6','☾','Ночь','В свете фонаря блестит асфальт')+'<div class="night"><svg viewBox="0 0 300 215" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1a38"/><stop offset="1" stop-color="#2d2a55"/></linearGradient><linearGradient id="as" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34345a"/><stop offset="1" stop-color="#0f0f20"/></linearGradient><linearGradient id="cn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a" stop-opacity=".6"/><stop offset="1" stop-color="#ffe08a" stop-opacity=".05"/></linearGradient><linearGradient id="rf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a" stop-opacity=".8"/><stop offset="1" stop-color="#ffe08a" stop-opacity="0"/></linearGradient></defs><rect width="300" height="215" fill="url(#sk)"/><polygon points="70,30 15,140 125,140" fill="url(#cn)"/><rect y="140" width="300" height="75" fill="url(#as)"/><ellipse cx="70" cy="146" rx="62" ry="8" fill="#ffe08a" opacity=".3"/><rect class="streak" x="63" y="142" width="14" height="60" fill="url(#rf)"/><rect x="68" y="30" width="4" height="110" fill="#0a0a14"/><rect x="58" y="24" width="24" height="8" rx="4" fill="#0a0a14"/><circle cx="70" cy="34" r="5" fill="#fff3b0"/>'+g+'<g class="nw" fill="#05050c"><g>'+P+'</g><use href="#pp" transform="translate(0,280) scale(1,-1)" opacity=".2"/></g></svg><div class="temp">+12° · после дождя</div></div>'},
+function(){var L='ЛЮБЛЮ'.split('').map(function(c,k){return '<span style="animation-delay:'+(.4+k*.4)+'s">'+c+'</span>'}).join('');return '<div class="fin"><div class="ring"><div class="hrt" style="font-size:56px">♥</div></div><h1>'+L+'</h1><p>Ты просто знай</p></div>'}
+];
+var st=document.getElementById('stage'),dots=document.getElementById('dots'),i=-1,tm,T=[];
+S.forEach(function(){dots.appendChild(document.createElement('i'))});
+function later(f,ms){T.push(setTimeout(f,ms/K))}
+function hearts(){for(var k=0;k<10;k++){var h=document.createElement('div');h.className='h';h.textContent=k%3?'♥':'💗';h.style.left=(10+Math.random()*80)+'%';h.style.top=(35+Math.random()*30)+'%';h.style.animationDelay=(k*70)+'ms';document.body.appendChild(h);setTimeout(function(x){x.remove()},2400,h)}}
+function count(to,dur,delay){var n=document.getElementById('n');if(!n)return;var from=+n.textContent;setTimeout(function(){var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/(dur/K));p=1-Math.pow(1-p,2);n.textContent=Math.round(from+(to-from)*p);if(p<1&&document.body.contains(n))requestAnimationFrame(f)})(t0)},(delay||0)/K)}
+function sparkle(){var a=document.getElementById('app');for(var k=0;k<14;k++){var s=document.createElement('i');s.className='ci';s.textContent=k%2?'✦':'+';s.style.left=(Math.random()*95)+'%';s.style.top=(Math.random()*95)+'%';s.style.color=['#ff9ccf','#a58bff','#7fc4ff','#fff'][k%4];s.style.animationDelay=(Math.random()*3)+'s';a.appendChild(s)}}
+var BEATS=[4,4,3,4,4,3,3,3,4,4],GRID=.25,BEAT=.8,TOTAL=29.07,KS=[1.5,1.5,2,1.5,1.5,2,2,2,1.5,1],STARTS=[];
+(function(){var a=GRID;BEATS.forEach(function(b){STARTS.push(a);a+=b*BEAT})})();
+function show(k){i=k;T.forEach(clearTimeout);T=[];
+ if(k<0){st.innerHTML='';[].forEach.call(dots.children,function(d){d.className=''});return}
+ K=KS[k];
+ st.innerHTML='<div class="card'+(i==9?' clear':'')+'">'+S[i]()+'</div>';
+ st.getAnimations({subtree:true}).forEach(function(a){a.playbackRate=K});
+ [].forEach.call(dots.children,function(d,j){d.className=j==i?'a':''});
+ if(i==0){count(100,2400);later(hearts,2400)}
+ if(i==1)count(9984,2400);
+ if(i==2)later(hearts,3000);
+ if(i==3){count(100,2400,600);later(hearts,3000)}
+ if(i==4)later(hearts,4200);
+ if(i==5){later(hearts,1200);later(hearts,3000)}
+ if(i==6)count(0,2400,600);
+ if(i==7)count(0,3000,600);
+ if(i==9){hearts();later(hearts,2400)}}
+var au=document.getElementById('au'),playing=false,t0=performance.now();
+function clock(){return playing&&!au.paused?au.currentTime:((performance.now()-t0)/1000)%TOTAL}
+function tick(){var c=clock(),k=-1;
+ for(var j=0;j<STARTS.length;j++)if(c>=STARTS[j])k=j;
+ if(k!==i)show(k);
+ document.querySelector('#seek i').style.width=(Math.min(1,c/TOTAL)*100)+'%';requestAnimationFrame(tick)}
+function go(){if(playing)return;playing=true;i=-2;au.currentTime=0;au.play().catch(function(){playing=false;t0=performance.now()})}
+au.play().then(function(){playing=true;i=-2}).catch(function(){});
+document.addEventListener('pointerdown',go,{once:true});
+sparkle();show(-1);requestAnimationFrame(tick);
+</script>
+</body>
+</html>
